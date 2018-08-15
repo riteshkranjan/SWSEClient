@@ -9,6 +9,7 @@
 /node_modules
 /ng-app
 /e2e
+package-lock.json
 
 # IDEs and editors
 /.idea
