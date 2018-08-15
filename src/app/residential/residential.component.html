@@ -1,0 +1,145 @@
+<div class="customerWrapper">Customer</div>
+<div class="firstWrapper">
+    <div class="container">
+        <div class="topWrapper">               
+            <span class="menu"><select>
+              <option value="menu">Menu</option>
+            </select></span>
+            <span class="submit"><button type="submit">Submit</button></span>
+            <span><button type="submit">Send KCI</button></span>
+            <span><button type="submit">Credit Worthiness</button></span>                
+          </div>   
+      <table class="table" id="residential">        
+        <tr>
+          <td class="label">Customer:<span>*</span></td>
+          <td><input type="text" class="form-control" id="customer" [(ngModel)]="customer" name="customer" value="{{searchResult.customer.consumer}}"></td>         
+        </tr>
+        <tr>
+          <td class="label">TB:</td>
+          <td> 
+              <select  [(ngModel)]="TB" >
+                 <option value="Y">Yes</option>
+                 <option value="N">No</option>
+              </select>
+          </td>          
+        </tr>
+        <tr>
+          <td class="label">TB Last Updated:</td>
+          <td> <input id="lastUpdated" [(ngModel)]="lastUpdated" type="date" value=""/></td>         
+        </tr>
+        <tr>
+          <td class="label">Promote:</td>
+          <td> <input type="text" class="form-control" id="promote" [(ngModel)]="promote" name="promote"></td>          
+        </tr>
+        <tr>
+          <td class="label">Last Promoted:</td>
+          <td> <input type="text" class="form-control" id="lastPromoted" [(ngModel)]="lastPromoted" name="lastPromoted"></td>          
+        </tr>
+        <tr>
+            <td class="label">Last Contact Date:</td>
+            <td> <input type="text" class="form-control" id="lastContactDate" [(ngModel)]="lastContactDate" name="lastContactDate"></td>            
+          </tr>
+          <tr>
+              <td class="label">Last Contact Outcome:</td>
+              <td> <input type="text" class="form-control" id="lastContactOutcome" [(ngModel)]="lastContactOutcome" name="lastContactOutcome"></td>              
+            </tr>
+            <tr>
+                <td class="label">Last Contact Type:</td>
+                <td> <input type="text" class="form-control" id="lastContactType" [(ngModel)]="lastContactType" name="lastContactType"></td>                
+              </tr>
+      </table>
+      <table class="table" id="residentialLeft">
+      <tr>
+          <td class="label">Customer Summary:</td>
+          <td> <textarea [(ngModel)]="customerSummary" rows="4" cols="2" value="{{searchResult.customer.customerSummary}}"></textarea><br/> </td>
+      </tr>
+    <tr>
+      <td class="label">Billing Summary</td>
+          <td> <textarea [(ngModel)]="billingSummary" rows="4" cols="2" value="{{searchResult.customer.billingSummary}}"></textarea><br/></td>
+        </tr>
+        <tr>
+      <td class="label">Contact Summary:</td>
+   
+          <td> <textarea [(ngModel)]="contactSummary" rows="4" cols="2" value="{{searchResult.customer.contactSummary}}"></textarea> </td>
+      </tr>
+      </table>
+  
+        <table class="table" id="residentialBottom">
+          <tr>
+            <td class="label">Hazard/Warning Notes on Account(s):</td>
+            <td><input type="checkbox" value="one" ></td>
+          </tr>
+          <tr>
+            <td class="label">VAT Invoice:</td>
+            <td><input type="checkbox" value="one" ></td>
+            <td class="label">Registration Date:</td>
+            <td> <input id="regDate" [(ngModel)]="regDate" type="date" value=""/></td>   
+          </tr>
+          <tr>
+              <td class="label">Anonymous:</td>
+              <td><input type="checkbox" value="one" ></td>
+              <td class="label">UKResidencyDeclarationDate:</td>
+              <td><input type="text" class="form-control" id="ukDeclarationdate" [(ngModel)]="ukDeclarationdate" name="ukDeclarationdate"></td>              
+          </tr>
+          <tr>
+            <td class="label">Customer Phase:</td>
+            <td> <td> <input type="text" class="form-control" id="customerPhase" [(ngModel)]="customerPhase" name="customerPhase"></td>              
+          </tr>
+        </table>
+
+      
+     
+    </div>
+    </div>
+    <div [ngStyle]="{'color':'red'}">{{errorMsg}}</div>
+    <div class="downWrapper">
+        <div class="topWrapperButtons">      
+        <span class="menu"><select>
+          <option value="menu">Menu</option>
+        </select></span>
+        <span><button type="submit" disabled>BT Mobile Port-In</button></span>
+        <span><button type="submit" disabled>Query</button></span>
+        <span><button type="submit" disabled>Contract/Discount</button></span>
+        <span><button type="submit" (click)="loadMyOrderScreen(selectedrow)">Modify</button></span>
+        <span><button type="submit" disabled>Cease</button></span>
+        <span><button type="submit" disabled>Move</button></span>
+        <span><button type="submit" disabled>Stop CPE Chase</button></span>
+        <span><button type="submit" disabled>Issue PAC</button></span>
+        <span><button type="submit" disabled>Recurring Charges</button></span>
+        <span><button type="submit" disabled>Change Promotion</button></span>
+        <span><button type="submit" disabled>Unbundle</button></span>
+        <span><button type="submit" disabled>BT-com Portal</button></span>
+        <span><button type="submit" disabled>Update Service Address</button></span>
+        <span><button type="submit" disabled>BT Mobile Discount</button></span>
+      </div>
+     
+      <div class="bottomWrapper">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <!--<th>Sequence</th>-->
+                <th>Asset#</th>
+              <!--  <th>OPE</th>-->
+                <th>Product</th>
+               <!-- <th>Product</th>-->
+                <th>Contract End Date</th>
+                <th>Service Id</th>
+                <th>Billing Account No</th>
+                <th>Promotion Integration Id</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let items of searchResult.assets" (click)="RowSelected(items,$event)">
+                <td>{{items.assetNumber}}</td>
+                <td>{{items.product}}</td>
+                <td>{{items.contractEndDate}}</td>
+                <td>{{items.serviceId}}</td>
+                <td>{{items.billingAccountNo}}</td>
+                <td>{{items.promotionInteg}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>

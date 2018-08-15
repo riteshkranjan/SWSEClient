@@ -1,0 +1,23 @@
+nav{
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding:5px;
+    }
+    nav .btn {
+        padding: 0 5px;
+        border-radius: 0;
+        margin: 0 2px;
+        box-sizing: border-box;
+        font-size: 14.3px;
+        line-height: 2;
+    }
+    .btn-primary,.btn-primary.disabled {
+        color: #fff;
+        background-color:#0a4046;
+        border-color: #0a4046;
+        opacity: 0.65;
+    }
+    a.btn.btn-primary.router-link-active{
+        opacity: 1;
+    }

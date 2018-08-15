@@ -1,0 +1,87 @@
+<div class="firstWrapper">
+  <div class="container">
+    
+    <table class="table" id="searchCriteria">
+      <tr><td colspan="4" [ngStyle]="{'color':'red'}">{{errorMsg}}</td> </tr>
+      <tr>
+          <td class="label">DN Telephone Number:</td>
+          <td><input type="text" class="form-control" id="telNo" [(ngModel)]="telNo" name="telNo"></td>
+          <td class="label">Billing Account Number:</td>
+          <td> <input type="text" class="form-control" id="billacntno" [(ngModel)]="billacntno" name="billacntno"></td>
+          <button type="submit" class="btn btn-default" (click)="loadMyChildComponent(telNo,billacntno)">Search</button>
+         
+      </tr>
+      <tr class="disabled">
+        <td class="label">Sub Premise:</td>
+        <td><input type="text" class="form-control" id="subpremise" [(ngModel)]="subpremisee" name="subpremise"></td>
+        <td class="label">Opportunity Id:</td>
+        <td> <input type="text" class="form-control" id="opprtunityid" [(ngModel)]="opprtunityid" name="opprtunityid"></td>
+        <button type="submit" class="btn btn-default" (click)="searchButton()">Search</button>
+      </tr>
+      <tr class="disabled">
+        <td class="label ">Street No/Building Name:</td>
+        <td> <input type="text" class="form-control" id="street" [(ngModel)]="street" name="street"></td>
+        <td class="label">Contact Integration ID:</td>
+        <td> <input type="text" class="form-control" id="contactIntId" [(ngModel)]="contactIntId" name="contactIntId"></td>
+        <button type="submit" class="btn btn-default" (click)="searchButton()">Search</button>
+      </tr>
+      <tr class="disabled">
+        <td class="label">Street Name:</td>
+        <td> <input type="text" class="form-control" id="streetName" [(ngModel)]="streetName" name="streetName"></td>
+        <td class="label">ONT Ref ID:</td>
+        <td> <input type="text" class="form-control" id="ontrefId" [(ngModel)]="ontrefId" name="ontrefId"></td>
+        <button type="submit" class="btn btn-default" (click)="searchButton()">Search</button>
+      </tr>
+      <tr class="disabled">
+        <td class="label">Post Town:</td>
+        <td> <input type="text" class="form-control" id="postTown" [(ngModel)]="postTown" name="postTown"></td>
+        <td class="label">VSID/Sky Subscriber Id:</td>
+        <td> <input type="text" class="form-control" id="VSID" [(ngModel)]="VSID" name="VSID"></td>
+        <button type="submit" class="btn btn-default" (click)="searchButton()">Search</button>
+      </tr>
+      <tr class="disabled">
+        <td class="label">EIN/UIN:</td>
+        <td> <input type="text" class="form-control" id="EIN" [(ngModel)]="EIN" name="EIN"></td>
+        <button type="submit" class="btn btn-default" (click)="searchButton()">Search</button>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="resultWrapper">
+  <div class="topWrapper">
+    <span class="result">Results</span>
+    <span class="menu"><select>
+      <option value="menu">Menu</option>
+    </select></span>
+    <span class="proceed"><button type="submit">Proceed</button></span>
+    <span><button type="submit">Get Account Manager</button></span>
+    <span><button type="submit">Create Customer</button></span>
+    <span class="finish"><button type="submit">Finish</button></span>
+    <span><button type="submit">Search Address</button></span>
+    <span><button type="submit">Forgotten Password</button></span>
+  </div>
+  <div class="bottomWrapper">
+    <table class="table">
+      <thead>
+        <tr><th>Type</th>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Postcode</th>
+          <th>Telephone No</th>
+          <th>Billing Account</th>
+          <th>Email</th>
+          <th>Account Manager</th>
+          <th>Refer Telephone</th>
+          <th>Sector</th>
+          <th>Billing Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

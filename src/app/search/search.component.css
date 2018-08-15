@@ -1,0 +1,59 @@
+.resultWrapper{
+background: #7cacf3;
+    border: 1px solid #7cacf3;
+}
+.resultWrapper .bottomWrapper{
+    background: #fff;
+    min-height: 265px;
+}
+.table thead th{
+    font-size:12px;
+}
+.topWrapper span button {
+    font-size: 10px;
+    margin-right: 3px;
+    font-weight: bold;
+    border:1px solid #fff;
+    background: #fff;
+}
+.topWrapper span.result{
+    color:#fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding:0 10px;
+    border-right:1px solid;
+}
+.topWrapper span.menu{
+    font-size:10px;
+    padding: 0 10px;
+    border-right: 1px solid #fff;
+    font-weight: bold;
+}
+.topWrapper span.proceed button{
+    color:#0fda0f;
+}
+.topWrapper span.proceed{
+    padding-left: 10px;
+}
+.topWrapper{
+    padding-bottom: 5px;
+}
+.topWrapper span.finish button{
+    color:red;
+}
+table#searchCriteria button{
+    font-size: 12px;
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 1;
+    font-weight: bold;
+    border-radius: 0;
+    border: none;
+    background: #fff;
+    padding: 5px 10px;
+    margin-top: 8px;
+    margin-left: 5px;
+}
+table tr.disabled{
+    pointer-events: none;
+}

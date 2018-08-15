@@ -1,0 +1,93 @@
+table#residential,table#residentialLeft{
+    max-width: 50%;
+    width:100%;
+    display: inline-block;
+    vertical-align: top;
+    margin-top:40px;
+}
+#residentialLeft textarea{
+    width:300px;
+    height: 30px
+}
+table#residentialBottom{
+    position: absolute;
+    top: calc(100% - 170px);
+    left: calc(100% - 705px);
+    max-width: 50%;
+    transform: translate(0%,0%);
+    -webkit-transform: translate(0%,0%);
+    -moz-transform: translate(0%,0%);
+    -ms-transform: translate(0%,0%);
+}
+.container{
+    position: relative;
+}
+.firstWrapper .topWrapper button,.topWrapperButtons button{
+    font-size: 12px;
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 1;
+    font-weight: bold;
+    border-radius: 0;
+    border: none;
+    background: #fff;
+    padding: 5px 10px;
+   
+    margin-left: 5px;
+}
+.topWrapper span.menu{
+    font-size:12px;
+    padding: 0 10px;
+    border-right: 1px solid #000;
+    font-weight: bold;
+}
+.firstWrapper{
+    padding-top:0;
+    margin-top:0;
+}
+
+.topWrapper {
+    position: absolute;
+    left: -100px;
+    top: 2px;
+}
+.customerWrapper{
+    color: #429af7;
+    font-weight: bold;
+    font-size: 12px;
+    padding-left: 5px;
+    border: 2px solid #ececec;
+}
+.downWrapper{
+    background: #7cacf3;
+    border: 1px solid #7cacf3;
+}
+.bottomWrapper{
+    background: #fff;
+    min-height: 265px;
+}
+topWrapperButtons button{
+    font-weight: 400;
+}
+.topWrapperButtons span button {
+    font-size: 9.5px;
+    margin: 5px 3px;
+    font-weight: bold;
+    border:1px solid #fff;
+    background: #fff;
+}
+span.menu{
+    font-size: 10px;
+    padding: 0 10px;
+    border-right: 1px solid #fff;
+    font-weight: bold;
+}
+.table thead th{
+    font-size: 12px;
+}
+table tr.highlighted{
+    background: red;
+}
+.topWrapperButtons{
+    padding: 5px 0;
+}

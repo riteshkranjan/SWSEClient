@@ -1,0 +1,37 @@
+.downWrapper{
+    background: #7cacf3;
+    border: 1px solid #7cacf3;
+    border-bottom: none;
+}
+.bottomWrapper{
+    background: #fff;
+    min-height: 265px;
+}
+topWrapperButtons button,button{
+    font-weight: 400;
+}
+.topWrapperButtons span button,button{
+    font-size: 10px;
+    margin: 5px 3px;
+    font-weight: bold;
+    border:1px solid #fff;
+    background: #fff;
+}
+span.menu{
+    font-size: 10px;
+    padding: 0 10px;
+    border-right: 1px solid #fff;
+    font-weight: bold;
+}
+.table thead th{
+    font-size: 12px;
+}
+button.btn.btn-primary {
+    display: inline-block !important;
+    width: 100px;
+    color: #000;
+    background: #ececec;
+}
+.form-control:disabled, .form-control[readonly]{
+    background: #fff;
+}

@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+.firstWrapper,#residentialBottom {
+    background: #ececec;
+    padding: 20px;
+    margin: 10px 0;
+}
+table#searchCriteria,table#residential{
+    max-width: 100%;
+    width:100%;
+    margin:0 auto;
+    
+}
+#searchCriteria td.label,#residential td.label,#residentialLeft td.label,.table td.label {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: right;
+
+}
+#searchCriteria td input,#residential td input,#residentialLeft td input,#residentialBottom td input {
+    border: none;
+    height:30px;
+}
+.table#searchCriteria tr td,#residential tr td,#residentialLeft tr td,#residentialBottom tr td {
+    border:none;
+    padding:5px;
+    vertical-align: middle;
+}
+button{
+    margin: 0 10px;
+}
+input {
+    outline:none !important; 
+   }
+   table tr{
+       cursor: pointer !important;
+   }

@@ -1,0 +1,30 @@
+{
+    "/data":{
+        "target":"http://localhost:8080",
+        "secure":false,
+        "pathRewrite": {
+            "^/data": ""
+          }
+    },
+    "/order":{
+        "target":"http://localhost:8080",
+        "secure":false,
+        "pathRewrite": {
+            "^/order": ""
+          }
+    },
+    "/offer":{
+        "target":"http://localhost:8080",
+        "secure":false,
+        "pathRewrite": {
+            "^/offer": ""
+          }
+    },
+    "/addOrder":{
+        "target":"http://localhost:8080",
+        "secure":false,
+        "pathRewrite": {
+            "^/addOrder": ""
+          }
+    }
+}
