@@ -15,8 +15,7 @@ import {responselist} from './responselist';
 
 export class SalesOrdersComponent implements OnInit {
   
- orderResult:  responselist;
-  //orderResult.order=[];
+ orderResult:  responselist;  
   private  offerResult:  Array<object> = [];
   selectedoffer;
   selectedrow;
@@ -24,6 +23,7 @@ export class SalesOrdersComponent implements OnInit {
   response;
   orderNumber;
   addedOrder;
+  orderId;
 
   ngOnInit() {
       this.route.params.subscribe(params =>{
@@ -41,27 +41,28 @@ export class SalesOrdersComponent implements OnInit {
   public  getOrders(params:any){  
     this.searchservice.getOrders(params).subscribe((data: any) => {
         this.orderResult  = data;
-        console.log('orderResult',data);    
       
     });
-
     
   }
 
   public getOffers(){
     this.searchservice.getOffers().subscribe((data: any) => {
       this.offerResult  =  data;
-      console.log(data);    
+      
   });
   }
 
   public addOrders(){
-    this.searchservice.getaddOrders( this.selectedoffer,this.orderResult.order.orderNumber);   
+    this.searchservice.getaddOrders( this.selectedoffer,this.orderResult.order.orderNumber).subscribe((data: any) => {
+     
+     this.orderId =data;    
+  });
   }
 
   offerSelected(row:any){
     this.selectedoffer=row; 
-    console.log('rowselected',this.selectedoffer);
+    
   }
 
   openModal(template: TemplateRef<any>) {
@@ -79,17 +80,15 @@ export class SalesOrdersComponent implements OnInit {
       alert("Offer Applied");
       this.addOrders();
       this.modalRef.hide();
-      console.log('rowselected after ok',this.selectedoffer);
-
+     
     }
   }
-
   RowSelectedforOffer(row:any){    
     this.selectedrow=row; 
-    console.log('rowselected',this.selectedrow);
+   
   }
   submitData(){
-  this.ngOnInit();
-  alert('Order created successfully with order number'+" " +this.orderResult.order.orderNumber);
+    this.ngOnInit();
+   alert('Order created successfully with order id:'+" " +this.orderId);
   } 
 }

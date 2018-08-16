@@ -1,13 +1,19 @@
 import { Injectable } from '@angular/core';
 import {Http,Response,URLSearchParams, RequestOptions} from '@angular/http';
 import {HttpClientJsonpModule,HttpHeaders,HttpClientModule,HttpClient} from "@angular/common/http";
-import { map } from 'rxjs/operators'
+import { map, catchError   } from 'rxjs/operators'
+import { Observable, EMPTY, throwError } from 'rxjs';
 
+/*
 const ParseHeaders = {
   headers: new HttpHeaders ({
-   'Content-Type'  : 'application/json'
+   'responseType'  : 'text',
+   'Content-Type': 'application/json'
   })
  };
+
+ */
+ 
 
 @Injectable({
   providedIn: 'root'
@@ -21,23 +27,29 @@ export class SearchserviceService {
   ADD_ORDER_URL='./addOrder';
   constructor(private  httpClient:  HttpClient) {}  
 
-  getContacts(params:any){ 
-      console.log(params)    
+  getContacts(params:any){     
       let  urlVal=this.API_URL+"/search/"+params['telNo']+"/"+params['billacntno']
       return  this.httpClient.get(`${urlVal}`);
   }
 
-  getOrders(params:any){
-    console.log(params)
+  getOrders(params:any){   
     let  urlVal=this.ORDER_URL+"/getAssetDetails/"+params['assetNumber'];   
     return  this.httpClient.get(`${urlVal}`);
   }
 
-  getaddOrders(selectedOffer,orderNumber){
-    let  urlVal=this.ADD_ORDER_URL+"/addOrderItem/"+orderNumber;    
-    this.httpClient.post(urlVal,selectedOffer,ParseHeaders).subscribe((res) => {     
-     });
+  getaddOrders(selectedOffer,orderNumber):Observable <any> {
+    let  urlVal=this.ADD_ORDER_URL+"/addOrderItem/"+orderNumber;           
+     return this.httpClient.post(urlVal, selectedOffer, {'responseType'  : 'text'}).pipe(map(this.extractData)).pipe(catchError(this.handleError));
+    
   }
+  private extractData(res: Response) {    
+    let body = res.toString(); 
+    return body;
+}
+private handleError(error: any) { 
+  let res = error.toString(); 
+  return throwError(res);  
+}
 
   getOffers(){
     let  urlVal=this.OFFER_URL+"/getAllOffers/";
