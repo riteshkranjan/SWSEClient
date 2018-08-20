@@ -1,3 +1,4 @@
+
 <div class="customerWrapper">Customer</div>
 <div class="firstWrapper">
     <div class="container">
@@ -131,7 +132,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let items of searchResult.assets" (click)="RowSelected(items,$event)">
+                <tr *ngIf='!spinnerFlag'><img _ngcontent-c2="" src="./assets/loader.gif" style="
+                  position: absolute;
+                  left: 50%;
+                  transform: translate(-50%);width: 200px;"></tr>
+              <tr *ngFor="let items of searchResult.assets; index as i;" (click)="RowSelected(items,$event,i)" [class.highlighted]="i === currentRow">
+               
                 <td>{{items.assetNumber}}</td>
                 <td>{{items.product}}</td>
                 <td>{{items.contractEndDate}}</td>

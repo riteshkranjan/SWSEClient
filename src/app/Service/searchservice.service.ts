@@ -25,6 +25,7 @@ export class SearchserviceService {
   ORDER_URL = './order';
   OFFER_URL = './offer';
   ADD_ORDER_URL='./addOrder';
+  ADD_ORDER_ITEM ='./addOrderItem';
   constructor(private  httpClient:  HttpClient) {}  
 
   getContacts(params:any){     
@@ -38,10 +39,18 @@ export class SearchserviceService {
   }
 
   getaddOrders(selectedOffer,orderNumber):Observable <any> {
+    let  urlVal=this.ADD_ORDER_URL+"/generateOrderItem/"+orderNumber;           
+     return this.httpClient.post(urlVal, selectedOffer, {'responseType'  : 'text'}).pipe(map(this.extractData)).pipe(catchError(this.handleError));
+    
+  }
+
+  
+  addOrderItem(selectedOffer,orderNumber):Observable <any> {
     let  urlVal=this.ADD_ORDER_URL+"/addOrderItem/"+orderNumber;           
      return this.httpClient.post(urlVal, selectedOffer, {'responseType'  : 'text'}).pipe(map(this.extractData)).pipe(catchError(this.handleError));
     
   }
+
   private extractData(res: Response) {    
     let body = res.toString(); 
     return body;

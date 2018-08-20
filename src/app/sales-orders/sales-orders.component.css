@@ -7,6 +7,9 @@
     background: #fff;
     min-height: 265px;
 }
+.bottomWrapper table tr{
+    pointer-events: none;
+}
 topWrapperButtons button,button{
     font-weight: 400;
 }
@@ -34,4 +37,7 @@ button.btn.btn-primary {
 }
 .form-control:disabled, .form-control[readonly]{
     background: #fff;
+}
+table tr.highlighted{
+    background: #acc5f3;
 }

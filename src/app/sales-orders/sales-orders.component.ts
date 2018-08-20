@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {  TemplateRef } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-
 import {SearchserviceService} from '../Service/searchservice.service'
 import { RouterModule, Routes, Router, Params, ActivatedRoute } from '@angular/router';
 import {responselist} from './responselist';
@@ -24,14 +23,10 @@ export class SalesOrdersComponent implements OnInit {
   orderNumber;
   addedOrder;
   orderId;
+  currentRow;
 
   ngOnInit() {
-      this.route.params.subscribe(params =>{
-        let data: any = params['data'];
-        let newData= JSON.parse(data);      
-        this.getOrders(newData)
-      }
-    );
+    this.routeFunction();
   }
  
   constructor(private modalService: BsModalService,private searchservice: SearchserviceService,private route: ActivatedRoute) {
@@ -41,6 +36,7 @@ export class SalesOrdersComponent implements OnInit {
   public  getOrders(params:any){  
     this.searchservice.getOrders(params).subscribe((data: any) => {
         this.orderResult  = data;
+        console.log(this.orderResult)
       
     });
     
@@ -52,17 +48,25 @@ export class SalesOrdersComponent implements OnInit {
       
   });
   }
-
+  
+  public routeFunction(){
+    this.route.params.subscribe(params =>{
+      let data: any = params['data'];
+      let newData= JSON.parse(data);      
+      this.getOrders(newData)
+    })
+  }
   public addOrders(){
     this.searchservice.getaddOrders( this.selectedoffer,this.orderResult.order.orderNumber).subscribe((data: any) => {
-     
-     this.orderId =data;    
+     this.routeFunction();    
   });
+ 
   }
 
-  offerSelected(row:any){
+  offerSelected(row:any,event:any){
     this.selectedoffer=row; 
-    
+    this.currentRow = row.name;
+   
   }
 
   openModal(template: TemplateRef<any>) {
@@ -79,16 +83,27 @@ export class SalesOrdersComponent implements OnInit {
     else{
       alert("Offer Applied");
       this.addOrders();
-      this.modalRef.hide();
-     
+      this.modalRef.hide(); 
+    
     }
+    
   }
+ 
   RowSelectedforOffer(row:any){    
     this.selectedrow=row; 
    
   }
   submitData(){
-    this.ngOnInit();
-   alert('Order created successfully with order id:'+" " +this.orderId);
+    this.addOrderItems();
+   
   } 
+
+  public addOrderItems(){
+    this.searchservice.addOrderItem( this.selectedoffer,this.orderResult.order.orderNumber).subscribe((data: any) => {
+     
+     this.orderId =data;    
+     alert('Order created successfully with order id:'+" " +this.orderId);
+  });
+ 
+  }
 }

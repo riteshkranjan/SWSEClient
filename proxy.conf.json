@@ -26,5 +26,12 @@
         "pathRewrite": {
             "^/addOrder": ""
           }
+    },
+    "/addOrderItem":{
+        "target":"http://localhost:8080",
+        "secure":false,
+        "pathRewrite": {
+            "^/addOrderItem": ""
+          }
     }
 }

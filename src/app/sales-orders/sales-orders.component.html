@@ -4,7 +4,7 @@
     <table class="table" id="searchCriteria" >
       <tr>
         <td class="label">Order Number:</td>
-        <td><input type="text" class="form-control" id="orderNo" [(ngModel)]="orderNo" name="orderNo" value="{{orderResult.order.orderNumber}}" readonly></td>
+        <td><input type="text" class="form-control" id="orderNo" [(ngModel)]="orderNo" name="orderNo" value="{{orderId}}" readonly></td>
 
         <td class="label">Status:</td>
         <td> <input type="text" class="form-control" id="status" [(ngModel)]="status" name="status" value="{{orderResult.order.status}}" readonly></td>       
@@ -32,7 +32,7 @@
   </div>
 
 <div class="bottomWrapper">
-    <table class="table table-hover">
+    <table class="table">
       <thead>
         <tr>         
           <th>Product</th>
@@ -72,21 +72,20 @@
         <tr class="clickable-row">
         <th>Name</th>
         <th>Part Num</th>
-        <th>Track as Asset</th>
+       <!-- <th>Track as Asset</th>
         <th>Price</th>
         <th>Type</th>
-        <th>Price Type</th>
+        <th>Price Type</th>-->
         </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let items of offerResult"  (click)="offerSelected(items)">
+          <tr *ngFor="let items of offerResult"  (click)="offerSelected(items,$event)" [class.highlighted]="items.name === currentRow">
             <td>{{items.name}}</td>
             <td>{{items.partNum}}</td>
-            <td>{{items.trackAsAsset}}</td>
+           <!-- <td>{{items.trackAsAsset}}</td>
             <td>{{items.price}}</td>
             <td>{{items.type}}</td>
-            <td>{{items.priceType}}</td>
-          </tr>
+            <td>{{items.priceType}}</td>-->
         </tbody>
         </table>
     </div>

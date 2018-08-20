@@ -26,6 +26,7 @@ import { HttpClientModule } from  '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    
    ModalModule.forRoot()
   ],
   providers: [],

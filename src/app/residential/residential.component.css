@@ -86,7 +86,7 @@ span.menu{
     font-size: 12px;
 }
 table tr.highlighted{
-    background: red;
+    background: #acc5f3;
 }
 .topWrapperButtons{
     padding: 5px 0;
